@@ -21,7 +21,7 @@ const options = {
         } else {
           // If you return null or false then the credentials will be rejected
          
-         return res.send("error")
+         
           // You can also Reject this callback with an Error or with a URL:
            //throw new Error('error message') // Redirect to error page
           // throw '/path/to/redirect'        // Redirect to a URL
