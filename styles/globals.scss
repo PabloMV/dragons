@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+$imgbg : "../public/bwdragon.png";
+
+html,
+body {
+  background-color: tomato;
+  background-image: url($imgbg);
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    h1, h2, h3{
+      font-family: 'MedievalSharp', cursive;
+      color: #fff;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }    
+}
+* {
+  box-sizing: border-box;
+}
+
+

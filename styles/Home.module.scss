@@ -1,0 +1,292 @@
+$bg_gradient_last_color: rgba(0, 212, 255, 1);
+$bg_gradient: linear-gradient(
+  90deg,
+  rgba(2, 0, 36, 1) 0%,
+  rgba(52, 9, 121, 1) 37%,
+  $bg_gradient_last_color 94%
+);;
+$bg_body: #212121; 
+.form {
+  h1 {
+    font-size: 23px;
+  }
+  width: 300px;
+  padding: 64px 15px 24px;
+  margin: 0 auto;
+  .control {
+    margin: 0 0 24px;
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font-family: monospace, serif;
+      letter-spacing: 0.05em;
+      font-size: 16px;
+      &:hover,
+      &:focus {
+        outline: none;
+        border: 0;
+      }
+    }
+  }
+  .btn {
+    width: 100%;
+    display: block;
+    padding: 14px 16px;
+    background: transparent;
+    outline: none;
+    border: 0;
+    color: #fff;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 16px;
+  }
+}
+
+.blockCube {
+  position: relative;
+  .bgTop {
+    position: absolute;
+    height: 10px;
+    background: rgb(2, 0, 36);
+    background: $bg_gradient;
+    bottom: 100%;
+    left: 5px;
+    right: -5px;
+    transform: skew(-45deg, 0);
+    margin: 0;
+    .bgInner {
+      bottom: 0;
+    }
+  }
+  .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(2, 0, 36);
+    background: $bg_gradient;
+  }
+  .bgRight {
+    position: absolute;
+    background: rgb(2, 0, 36);
+    background: rgba(0, 212, 255, 1);
+    top: -5px;
+    z-index: 0;
+    bottom: 5px;
+    width: 10px;
+    left: 100%;
+    transform: skew(0, -45deg);
+    .bgInner {
+      left: 0;
+    }
+  }
+  .bg {
+    .bgInner {
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  .bgInner {
+    background: $bg_body;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+  }
+  .text {
+    position: relative;
+    z-index: 2;
+  }
+  &.blockInput {
+    input {
+      position: relative;
+      z-index: 2;
+      &:focus ~ .bgRight .bgInner,
+      &:focus ~ .bgTop .bgInner,
+      &:focus ~ .bgInner .bgInner {
+        top: 100%;
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+    .bgTop,
+    .bgRight,
+    .bg {
+      background: rgba(255, 255, 255, 0.5);
+      transition: background 0.2s ease-in-out;
+    }
+    .bgRight,
+    .bgTop {
+      .bgInner {
+        transition: all 0.2s ease-in-out;
+      }
+    }
+    &:focus,
+    &:hover {
+      .bgTop,
+      .bgRight,
+      .bg {
+        background: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+  // State hover, focus
+  &.blockCubeHover:focus,
+  &.blockCubeHover:hover {
+    .bg {
+      .bg-inner {
+        top: 100%;
+      }
+    }
+  }
+}
+
+.credits {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 15px 15px;
+  width: 100%;
+  z-index: 111;
+  a {
+    opacity: 0.6;
+    color: #fff;
+    font-size: 11px;
+    text-decoration: none;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  /* transition: color 0.15s ease, border-color 0.15s ease; */
+  width: 45%;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: #000;
+  border-color: #fff;
+}
+
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.logo {
+  height: 1em;
+  margin-left: 0.5rem;
+}
+.column {
+  flex-direction: column;
+}
+.blur {
+  backdrop-filter: blur(15px);
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
